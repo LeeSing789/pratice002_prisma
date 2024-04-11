@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model employee {
+  emp_id   Int    @id @default(autoincrement())
+  emp_name String @db.VarChar(100)
+  dob      String @db.VarChar(100)
+  salary   Float
+}
+
+model next_pratice002 {
+  id           Int     @id(map: "next_pritice002_pkey") @default(autoincrement())
+  name         String? @db.VarChar(50)
+  gender       String? @db.VarChar(6)
+  dob          String? @db.VarChar(15)
+  live         String? @db.VarChar(30)
+  class        String? @db.VarChar(15)
+  phone_number String? @db.VarChar(14)
+}
